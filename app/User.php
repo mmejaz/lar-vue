@@ -36,4 +36,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function questions()
+    {
+        return $this->hasMany(Questions::class);
+    }
+    //Defining Mute
+    public function setTitleAttribute($value)
+    {
+        $this->attributes['title']=$values;
+        $this->attributes['slug']=str_slug($value);
+    }
 }
